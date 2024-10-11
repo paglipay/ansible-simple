@@ -1,0 +1,6 @@
+- name: Ping the nodes
+  gather_facts: no
+  hosts: all
+  become: yes
+  tasks:
+  - action: ping
