@@ -1,0 +1,10 @@
+- name: Shutdown the nodes
+  hosts: site
+  tasks:
+  - name: Shutdown site
+    shell: shutdown now -h
+    register: shutdown_result
+
+  - name: Shutdown result
+    debug:
+      msg: "{{ shutdown_result.stdout_lines }}"

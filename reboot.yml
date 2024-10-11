@@ -1,0 +1,10 @@
+- name: Reboot the nodes
+  hosts: site
+  tasks:
+  - name: Reboot site
+    shell: reboot
+    register: reboot_result
+
+  - name: Reboot result
+    debug:
+      msg: "{{ reboot_result.stdout_lines }}"
