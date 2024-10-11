@@ -1,0 +1,10 @@
+- name: Docker PS the nodes
+  hosts: site
+  tasks:
+  - name: Docker PS site
+    shell: docker ps
+    register: docker_ps_result
+
+  - name: Docker PS result
+    debug:
+      msg: "{{ docker_ps_result.stdout_lines }}"
