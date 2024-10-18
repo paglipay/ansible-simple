@@ -1,0 +1,10 @@
+- name: Shutdown the nodes
+  hosts: site
+  tasks:
+  - name: Shutdown site
+    shell: docker system prune -y
+    register: shutdown_result
+
+  - name: Shutdown result
+    debug:
+      msg: "{{ shutdown_result.stdout_lines }}"
